@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    import ProductTable from "$lib/components/products/Table.svelte";
+    import {Modal} from "flowbite-svelte";
+    import ProductForm from "$lib/components/products/Form.svelte";
+
+    let open = $state(false)
+
+</script>
+
+<Modal title="Add a new product" bind:open autoclose>
+    <ProductForm/>
+</Modal>
+<ProductTable bind:openForm={open}/>
